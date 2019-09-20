@@ -1,6 +1,8 @@
 package empdao
 
 import (
+	"log"
+
 	"github.com/tk-ozawa/mysql_api/pkg/db"
 )
 
@@ -24,7 +26,7 @@ func FetchIndex() []Emp {
 	// rowを取得
 	rows, err := db.Query("SELECT * FROM emps")
 	if err != nil {
-		panic(err.Error())
+		log.Fatal(err.Error())
 	}
 
 	// emp型のスライスに格納する
@@ -33,7 +35,7 @@ func FetchIndex() []Emp {
 		var emp Emp
 		err = rows.Scan(&emp.ID, &emp.EmNo, &emp.EmName, &emp.EmJob, &emp.EmMgr, &emp.EmHiredate, &emp.DeptID)
 		if err != nil {
-			panic(err.Error())
+			log.Fatal(err.Error())
 		}
 		empArgs = append(empArgs, emp) // empArgsの最後尾の要素にempを追加
 	}
