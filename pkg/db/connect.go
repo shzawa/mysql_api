@@ -1,3 +1,14 @@
+package db
+
+import (
+	"database/sql"
+	"log"
+	"os"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/joho/godotenv"
+)
+
 func Connect() *sql.DB {
 	// .env読み込み
 	err := godotenv.Load()

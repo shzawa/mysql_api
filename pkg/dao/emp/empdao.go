@@ -1,7 +1,7 @@
 package empdao
 
 import (
-	"./../../db"
+	"github.com/tk-ozawa/mysql_api/pkg/db"
 )
 
 // Emp型の構造体を用意
